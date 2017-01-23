@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+.grid {
+    width: 1000px;
+    margin: auto;
+    background-color: azure;
+}
+
+.clearfix:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+.col-50 {
+    width: 50%;
+}
+
+.col-25 {
+    width: 25%;
+}
+
+.col-75 {
+    width: 75%;
+}
+
+.col-33 {
+    width: 33.333%;
+}
+
+.col-66 {
+    width: 66.666%;
+}
+
+.col-12 {
+    width: 12.5%;
+}
+
+[class*='col-'] {}
+
+[class*='col-'] {
+    float: left;
+}
+
+p {
+    margin: 1em;
+}
+
+.row-spacer {
+    height: 2em;
+}

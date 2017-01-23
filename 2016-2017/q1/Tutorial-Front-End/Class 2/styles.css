@@ -1,0 +1,23 @@
+body {
+    font-family: Roboto;
+    background-image: url(nasa.gif);
+    background-size: cover;
+    background-attachment: fixed;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+h1, h2 {
+    font-size: 45pt;
+    color: rgb(252, 61, 33);
+}
+
+p {
+    font-size: 15pt;
+    color: white;
+    text-shadow: 0 0 6px #000;
+}
+
+ul {
+    font-size: 15pt;
+    color: rgb(11, 61, 145);
+}

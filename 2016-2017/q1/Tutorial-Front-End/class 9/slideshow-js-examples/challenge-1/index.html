@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            .container {
+                width: 600px;
+                height: 400px;
+                margin: auto;
+                border: 6px solid #000;
+                overflow: hidden;
+                position: relative;
+            }
+            
+            .content {
+                position: absolute;
+                transition: 400ms;
+                width: calc(600px * 6);
+                height: 400px;
+            }
+            
+            .box {
+                width: 600px;
+                height: 400px;
+                float: left;
+            }
+            
+            .nav>ul>li>a {
+                font-size: 36px;
+                text-decoration: none;
+                color: #000;
+            }
+            
+            .nav>ul>li>a:hover {
+                color: #f00;
+            }
+            
+            .nav>ul>li>a.selected {
+                color: #f0f;
+                background-color: #000;
+            }
+            
+            
+            .red {
+                background-color: red;
+            }
+            
+        </style>
+    </head>
+    <body>
+       <div class="nav">
+           <ul>
+               <li><a href="#a">A</a></li>
+               <li><a href="#b">B</a></li>
+               <li><a href="#c">C</a></li>
+               <li><a href="#d">D</a></li>
+               <li><a href="#e">E</a></li>
+               <li><a href="#f">F</a></li>
+           </ul>
+       </div>
+       
+        <div class="container">
+            <div class="content">
+                <div id="a" class="box"></div>
+                <div id="b" class="box"></div>
+                <div id="c" class="box"></div>
+                <div id="d" class="box"></div>
+                <div id="e" class="box"></div>
+                <div id="f" class="box"></div>
+            </div>
+        </div>
+        
+        <!-- JS -->
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script>
+            
+            $(".box").each(function(i, el){
+                var hue = 360 / 6 * i;
+                console.log($(this));
+                $(this).css({backgroundColor:"hsl("+hue+", 100%, 50%)"}); 
+            });
+            
+            $(".content").css({left:0});
+            
+            $(".nav>ul>li>a").click(function(event){
+                event.preventDefault();
+                var index = $($(this).attr("href")).index();
+                var x = 600 * index;
+                $(".content").css({left:"-"+x+"px"});
+                
+                $(".nav>ul>li>a").removeClass("selected");
+                $(this).addClass("selected");
+            });
+            
+        </script>
+    </body>
+</html>

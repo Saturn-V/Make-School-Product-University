@@ -1,0 +1,12 @@
+.container {
+    width: 900px;
+    margin: auto;
+    background-color: black;
+}
+
+.col-4 {
+    position: relative;
+    float: left;
+    margin: 2.5%;
+    width: calc(33.33% - 5%);
+}

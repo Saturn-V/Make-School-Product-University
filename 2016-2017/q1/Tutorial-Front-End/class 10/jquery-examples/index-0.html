@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            .main > div {
+                width: 40px;
+                height: 40px;
+                margin: 5px;
+                background-color: coral;
+            }
+            
+            .main > div.selected {
+                background-color: chocolate;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="main">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
+        
+        <!-- JS -->
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script>
+            // Chaining method calls with jQuery
+            
+            // The script below uses chaining in two forms
+            $(".main>div").click(function(event){
+                $(this).addClass("selected").siblings().removeClass("selected");
+            }).eq(0).addClass("selected");
+            
+            // $(".main>div").click().eq(0).addClass()
+            /* 
+                This line does the following:
+                - selects all child div's of .main and assigns a click
+                - filters the selection to the first element 
+                - adds a class (which applies only to the first element)
+            */
+            
+            // $(this).addClass().siblings().removeClass();
+            /*
+                This line handles clicks by: 
+                - selecting the current element
+                - adds a class
+                - filters the selection to the sibling elements
+                - remove a class name from all siblings 
+            */
+            
+        </script>
+    </body>
+</html>
+

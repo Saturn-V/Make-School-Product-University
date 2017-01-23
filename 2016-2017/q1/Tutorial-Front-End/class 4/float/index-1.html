@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+
+<head>
+    <title></title>
+    
+    <style>
+        .main {
+            width: 600px;
+            margin: auto;
+        }
+        
+        img {
+            float: left;
+            margin: 0 1em 0 0;
+            border: 8px solid #ddd;
+        }
+        
+        p {
+            line-height: 24px;
+            margin: 0 0 24px 0;
+        }
+        
+        
+        .modal {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal.show {
+            display: block;
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <p><img src="Pikachu.png">Pikachu is an Electric-type Pok&eacute;mon.</p>
+        <p>It evolves from Pichu when leveled up with high friendship and evolves into Raichu when exposed to a Thunder Stone. However, the starter Pikachu in Pokémon Yellow will refuse to evolve into Raichu unless it is traded and evolved on another save file.</p>
+        <p>Pikachu is popularly known as the mascot of the Pokémon franchise and a major representative of Nintendo's collective mascots.</p>
+        <p>It is also the game mascot of Pokémon Yellow, where it is the only starter Pokémon in that game. It has made numerous appearances on the boxes of spin-off titles.</p>
+        <p>Pikachu is also the starter Pokémon in Pokémon Rumble Blast and Pokémon Rumble World.</p>
+    
+        <p><button id="button">Show</button></p>
+    </div>
+    
+    <div id="modal" class="modal"></div>
+    
+    
+    <script>
+        /*
+        var button = document.getElementById("button");
+        var modal = document.getElementById("modal");
+        var showModal = false;
+        
+        modal.addEventListener("click", function(event){
+            showModal = false;
+            modal.classList.remove("show");
+        });
+        
+        button.addEventListener("click", function(event){
+            showModal = true;
+            modal.classList.add("show");
+        });
+        */
+    </script>
+</body>
+
+</html>

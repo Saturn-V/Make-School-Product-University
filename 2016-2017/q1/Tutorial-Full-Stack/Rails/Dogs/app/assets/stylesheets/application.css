@@ -1,0 +1,66 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ body {
+     font-family: 'Roboto', sans-serif;
+     background-image: url(/nasa.gif);
+     background-size: cover;
+     background-attachment: fixed;
+ }
+
+ h1, h2 {
+     font-size: 45pt;
+     color: rgb(252, 61, 33);
+ }
+
+ h3 {
+     color: rgb(252, 61, 33);
+ }
+
+ p {
+     font-size: 15pt;
+     color: white;
+     text-shadow: 0 0 6px #000;
+ }
+
+ ul {
+     font-size: 15pt;
+     color: rgb(252, 61, 33);
+ }
+
+ a {
+     text-decoration: none;
+ }
+
+.container {
+    width: 900px;
+    margin: auto;
+}
+
+.col-50 {
+    width: calc(50%-5%);
+    height: 200px;
+    margin: 2.5%;
+    float: left;
+    background-color: rgba(11, 61, 145, 0.5);
+}
+
+.col-100 {
+    width: calc(100%-5%);
+    height: 200px;
+    margin: 2.5%;
+    float: left;
+    background-color: rgba(11, 61, 145, 0.5);
+}

@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        .container {
+            width: 400px;
+            height: 400px;
+            border: 6px solid #000;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+        }
+        
+        .main {
+            position: absolute;
+            transition: 500ms;
+        }
+        
+        .main > div {
+            width: 400px;
+            height: 400px;
+        }
+        
+        .links {
+            margin: 0;
+            padding: 0;
+            width: 400px;
+            margin: auto;
+        }
+        
+        .links > li {
+            display: inline-block;
+            cursor: pointer;
+            padding: 0.5em;
+            background: #ddd;
+            margin: 5px;
+        }
+        
+        .links > li:hover {
+            color: red;
+        }
+        
+        .links > li.selected {
+            color: #f0f;
+        }
+        
+        img {
+            float: left;
+            margin: 0 1em 1em 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="main">
+            
+        </div>
+    </div>
+    
+    <ul class="links">
+        
+    </ul>
+
+
+
+    <!-- Templates -->
+    <script id="movie-template" type="text/x-handlebars-template">
+        <div id="{{id}}" class="movie">
+            <h1>{{im:name.label}}</h1>
+            <div class="body">
+                <p>{{im:artist.label}}</p>
+                <p>{{im:price.label}}</p>
+                <p><img src="{{im:image.2.label}}">{{summary.label}}</p>
+            </div>
+        </div>
+    </script>
+    
+    <script id="link-template" type="text/x-handlebars-template">
+        <li class="movie-link">{{im:name.label}}</li>
+    </script>
+
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="handlebars-v4.0.5.js"></script>
+    <script>
+        var movieTemplate = Handlebars.compile($("#movie-template").html());
+        var linkTemplate = Handlebars.compile($("#link-template").html());
+        
+        $.get("https://itunes.apple.com/us/rss/topmovies/limit=10/json", function (data) {
+            var json = JSON.parse(data);
+            var entries = json.feed.entry;
+
+            var html = "";
+            var links = "";
+            for (i in entries) {
+                console.log(entries[i]);
+                html += movieTemplate(entries[i]);
+                links += linkTemplate(entries[i]);
+            }
+            $(".main").html(html);
+            $(".links").html(links);
+        });
+        
+        $("body").on("click", ".movie-link", function(event){
+            var index = $(this).index();
+            var top = $(".movie").eq(index).position().top;
+            console.log(index, top);
+            $(".main").css({top:-top+"px"});
+            $(this).addClass("selected").siblings().removeClass("selected");
+        });
+        
+    </script>
+</body>
+
+</html>

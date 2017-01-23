@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        
+    </div>
+
+
+    <!-- Templates -->
+    <script id="template" type="text/x-handlebars-template">
+        <div id="{{id}}" class="product">
+            <h1>{{im:name.label}}</h1>
+            <div class="body">
+                <p><img src="{{im:image.2.label}}">{{summary.label}}</p>
+            </div>
+        </div>
+    </script>
+
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="handlebars-v4.0.5.js"></script>
+    <script>
+        var template = Handlebars.compile($("#template").html());
+        $.get("https://itunes.apple.com/us/rss/topmovies/limit=10/json", function (data) {
+            var json = JSON.parse(data);
+            var entries = json.feed.entry;
+            
+            var html = "";
+            for (i in entries) {
+                console.log(entries[i]);
+                html += template(entries[i]);
+            }
+            $(".main").html(html);
+        });
+    </script>
+</body>
+
+</html>

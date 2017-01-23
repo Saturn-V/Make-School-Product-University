@@ -1,0 +1,49 @@
+/* Simple Grid CSS from: https://css-tricks.com/dont-overthink-it-grids/ */
+
+* {
+    box-sizing: border-box;
+}
+
+.grid {
+    width: 1200px;
+    margin: auto;
+}
+
+.clearfix:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+.col-100 {
+    width: 100%;
+}
+
+.col-75 {
+    width: 75%;
+}
+
+.col-50 {
+    width: 50%;
+}
+
+.col-66 {
+    width: 66.666%;
+}
+
+.col-33 {
+    width: 33.333%;
+}
+
+.col-25 {
+    width: 25%;
+}
+
+.col-12 {
+    width: 12.5%;
+}
+
+[class*='col-'] {
+    float: left;
+    padding: 0.5em;
+}

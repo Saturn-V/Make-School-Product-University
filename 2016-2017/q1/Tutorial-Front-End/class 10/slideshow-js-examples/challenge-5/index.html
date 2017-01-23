@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        .main {
+            width: 900px;
+            margin: auto;
+        }
+        
+        .container {
+            float: left;
+            border: 6px solid #000;
+            overflow: hidden;
+            position: relative;
+            box-sizing: border-box;
+            margin: 10px;
+        }
+        
+        .container-1 {
+            width: calc(100px - 20px);
+            height: 400px;
+        }
+        
+        .container-2 {
+            width: calc(200px - 20px);
+            height: 400px;
+        }
+        
+        .container-3 {
+            width: calc(600px - 20px);
+            height: 400px;
+        }
+        
+        .content {
+            position: absolute;
+            transition: 400ms;
+        }
+        
+        .box {
+            width: 600px;
+            height: 400px;
+            float: left;
+        }
+        
+        
+        .nav>ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-align: center;
+            height: 100%;
+        }
+        
+        .nav>ul>li {
+            height: calc(100% / 6);
+        }
+        .nav>ul>li>a {
+            font-size: 36px;
+            text-decoration: none;
+            color: #000;
+            display: block;
+            height: 100%;
+            line-height: calc(400px / 6);
+        }
+        
+        .nav>ul>li>a:hover {
+            color: #f00;
+        }
+        
+        .nav>ul>li>a.selected {
+            color: #f0f;
+            background-color: #000;
+        }
+        
+        .red {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="nav container container-1">
+            <ul>
+                <li><a href="#a">A</a></li>
+                <li><a href="#b">B</a></li>
+                <li><a href="#c">C</a></li>
+                <li><a href="#d">D</a></li>
+                <li><a href="#e">E</a></li>
+                <li><a href="#f">F</a></li>
+            </ul>
+        </div>
+        
+        <div class="container container-2">
+            <div class="content content-2">
+                <div id="a" class="box"></div>
+                <div id="b" class="box"></div>
+                <div id="c" class="box"></div>
+                <div id="d" class="box"></div>
+                <div id="e" class="box"></div>
+                <div id="f" class="box"></div>
+            </div>
+        </div>
+
+        <div class="container container-3">
+            <div class="content content-3">
+                <div id="a" class="box"></div>
+                <div id="b" class="box"></div>
+                <div id="c" class="box"></div>
+                <div id="d" class="box"></div>
+                <div id="e" class="box"></div>
+                <div id="f" class="box"></div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <svg width="187px" height="187px" viewBox="0 0 187 187" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Group" transform="translate(8.000000, 8.000000)">
+                <path class="red" d="M156.05972,86 C141.881534,110.509856 115.381437,127 85.02986,127 C54.6782834,127 28.1781862,110.509856 14,86 C28.1781862,61.4901438 54.6782834,45 85.02986,45 C115.381437,45 141.881534,61.4901438 156.05972,86 Z M85,112 C99.3594035,112 111,100.359403 111,86 C111,71.6405965 99.3594035,60 85,60 C70.6405965,60 59,71.6405965 59,86 C59,100.359403 70.6405965,112 85,112 Z" id="Combined-Shape" fill="#E3E3E3"></path>
+                <circle class="red" id="Oval-3" stroke="#E4E4E4" stroke-width="15" cx="85.5" cy="85.5" r="85.5"></circle>
+            </g>
+        </g>
+    </svg>
+    
+    <img src="eyecon.svg">
+    
+    
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        $(".box").each(function (i, el) {
+            var hue = 360 / 6 * i;
+            console.log($(this));
+            $(this).css({
+                backgroundColor: "hsl(" + hue + ", 100%, 50%)"
+            });
+        });
+
+        $(".content-2").css({
+            top: 0
+        });
+        
+        $(".content-3").css({
+            bottom: 0
+        });
+
+        $(".nav>ul>li>a").click(function (event) {
+            event.preventDefault();
+            var index = $($(this).attr("href")).index();
+            var y = 400 * index;
+            
+            $(".content-2").css({
+                top: "-" + y + "px"
+            });
+            
+            $(".content-3").css({
+                bottom: "-" + y + "px"
+            });
+
+            $(".nav>ul>li>a").removeClass("selected");
+            $(this).addClass("selected");
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+
+   
+<style>
+    .container {
+        height: 400px;
+        width: 400px;
+        margin: auto;
+        border: 10px solid #000;
+        overflow: scroll;
+    }
+    
+    .box {
+        height: 400px;
+    }
+    
+    .display {
+        text-align: center;
+    }
+    
+    .completed {
+        border-color: red;
+    }
+</style>
+
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+
+<div class="display"></div>
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    
+    var boxHeight = 400;
+    var scrollDistance = 2000; // 400 * 6 - 400
+    
+    
+    $(".container").scroll(function(event){
+        $(".display").html("scroll height: "+this.scrollHeight+" scroll top: "+this.scrollTop);
+        if (this.scrollTop == this.scrollHeight - boxHeight) {
+            $(".container").addClass("completed");
+        } else {
+            $(".container").removeClass("completed");
+        }
+        
+        var p = this.scrollTop / scrollDistance;
+        var hue = 360 * p;
+        console.log(hue);
+        $("body").css({"background-color":"hsl("+hue+", 100%, 50%)"});
+    });
+    
+    
+    
+    
+    
+    $(".box").each(function (i, el) {
+        var hue = 360 / 6 * i;
+        console.log($(this));
+        $(this).css({
+            backgroundColor: "hsl(" + hue + ", 100%, 50%)"
+        });
+    });
+</script>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            :root {
+                --box-margin: 10px;
+                --box-width: 300px;
+            }
+            .main {
+                width: 900px;
+                margin: auto;
+                border: 1px solid #000;
+                background-color: #ddd;
+            }
+            
+            .box {
+                width: calc(var(--box-width) - var(--box-margin) * 2);
+                height: calc(var(--box-width) - var(--box-margin) * 2);
+                margin: var(--box-margin);
+                float: left;
+                background-color: red;
+            }
+            
+            .clear {
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            
+            <div class="clear"></div>
+        </div>
+    </body>
+</html>

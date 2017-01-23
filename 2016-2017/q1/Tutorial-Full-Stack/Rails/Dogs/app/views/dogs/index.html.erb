@@ -1,0 +1,23 @@
+<h1>Dog Index</h1>
+
+<div class="container">
+    <% @dogs.each do |d| %>
+    <div class="col-50">
+        <ul>
+            <a href="/dogs/<%= d.id %>">
+                <h1><%= d.name %></h1>
+            </a>
+            <li>Price/Hour: $<%= d.price_hr%>0</li>
+        </ul>
+    </div>
+    <% end %>
+
+    <div class="col-100">
+        <h1>SEE OUR PREMIRE <a href="/dogs/premiere">DOGE</a></h1>
+    </div>
+
+    <div class="col-100">
+        <h1>ADD A <a href="/dogs/new">DOGE</a></h1>
+    <div>
+
+</div>

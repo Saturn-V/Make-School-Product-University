@@ -1,0 +1,60 @@
+<!doctype>
+<html>
+    <head>
+        <title></title>
+        <script src="scrollreveal.min.js"></script>
+        
+        <style>
+            body, html {
+                height: 100%;
+                margin: 0;
+            }
+            .box {
+                height: 100%;
+                font-size: 100px;
+                text-align: center;
+            } 
+            
+            .foo {
+                background-color: darkorange;
+            }
+            
+            .bar {
+                background-color: darkturquoise;
+            }
+            
+            .menu {
+                position: fixed;
+                right: 40px;
+                top: 20px;
+                z-index: 9999;
+            }
+            
+            .border {
+                position: fixed;
+                z-index: 8888;
+                border: solid 20px #f0f;
+                width: calc(100% - 40px);
+                height: calc(100% - 40px);
+                left: 0;
+                top: 0;
+            }
+        </style>
+        
+    </head>
+    <body>
+      <div class="border"></div>
+       <ul class="menu">
+           <li>AAAA</li>
+           <li>BBBB</li>
+           <li>CCCC</li>
+       </ul>
+        <div class="box">Hello</div>
+        <div class="foo box"> Foo </div>
+        <div class="bar box"> Bar </div>
+        
+        <script>
+            window.sr = ScrollReveal().reveal('.foo, .bar');
+        </script>
+    </body>
+</html>

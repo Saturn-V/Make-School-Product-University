@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Class 7 - Challenge 1</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div id="content" class="container">
+    </div>
+
+
+    <!-- Templates -->
+    <script id="project-template" type="text/x-handlebars-template">
+        <div id="{{id}}" class="product col-4">
+
+            <img src="{{image}}" class="cat-image">
+
+            <div class="body">
+                <p>{{desc}}</p>
+            </div>
+
+            <div class="header">
+                <h1 class="title">{{title}}</h1>
+            </div>
+            
+        </div>
+    </script>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/handlebars-v4.0.5.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
